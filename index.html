@@ -353,6 +353,7 @@
   <div id="player-btn-container-3"></div>
 <!--  <div id="player-btn-container-4"></div> -->
   <div id="csv-export-container"></div> 
+  <div id="changeBtn"></div> 
   
 </div>
 
@@ -1017,6 +1018,28 @@ function createCSVButton() {
   container.appendChild(csvBtn);
 }
 
+function createChangeButton() {
+  const container = document.getElementById("changeBtn");
+  if (!container || container.children.length > 0) return;
+  
+  const changeBtn = document.createElement("button");
+  changeBtn.innerHTML = "4er Liste";
+  changeBtn.style.cssText = `
+	padding: 6px 16px; 
+	margin-left: auto;
+	background: linear-gradient(135deg, #ff7f50, #ff9933);
+	color: white; border: none; border-radius: 6px;
+	font-size: 15px; cursor: pointer;
+	box-shadow: 0 4px 12px rgba(255,127,80,0.3); transition: transform 0.2s;
+  `;
+  
+  changeBtn.addEventListener("mouseenter", () => changeBtn.style.transform = "scale(1.05)");
+  changeBtn.addEventListener("mouseleave", () => changeBtn.style.transform = "scale(1)");
+	changeBtn.addEventListener("click", () => {
+		window.location.href = 'https://frankbertram.github.io/4erListe';
+	});
+  container.appendChild(changeBtn);
+}
 function getInt(id) {
   return parseInt(document.getElementById(id)?.textContent || 0, 10);
 }
@@ -1755,7 +1778,7 @@ function updateCopyright() {
   const width = screen.width;
   const height = screen.height;
   document.getElementById('copyright').innerHTML = 
-    `© 2026 by Frank Bertram (V6) | Width: ${width}px | Height: ${height}px | Scale: ${scale}`;
+    `© 2026 by Frank Bertram (V5d) | Width: ${width}px | Height: ${height}px | Scale: ${scale}`;
 }
 
 
@@ -1763,6 +1786,7 @@ window.addEventListener("load", () => {
   fillTable();
   generatePlayerNameButtons();
   createCSVButton();  
+  createChangeButton();  
   updateCopyright();
   console.log(screen.width + 'x' + screen.height);  // Schnell-Check
 });
@@ -1774,4 +1798,3 @@ window.addEventListener("load", () => {
     </div> 
 </body>
 </html>
-
