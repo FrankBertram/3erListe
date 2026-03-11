@@ -745,8 +745,9 @@ function fillTable() {
     // Dein Streifen-Styling
     const colMap = [13, 16, 19];
     const mod = (data.nr - 1) % 3;
-    row.querySelector(`td:nth-child(${colMap[mod]})`).style.background =
-      "repeating-linear-gradient(-45deg, #eee, #eee 3px, #fff 3px, #fff 6px)";    
+    row.querySelector(`td:nth-child(${colMap[mod]})`).style.background = "repeating-linear-gradient(-45deg, #eee, #eee 3px, #fff 3px, #fff 6px)";    
+    row.querySelector(`td:nth-child(${colMap[mod]+1})`).style.background = "repeating-linear-gradient(-45deg, #eee, #eee 3px, #fff 3px, #fff 6px)";    
+    row.querySelector(`td:nth-child(${colMap[mod]+2})`).style.background = "repeating-linear-gradient(-45deg, #eee, #eee 3px, #fff 3px, #fff 6px)";    
 
 
     tbody.appendChild(row);
@@ -1166,7 +1167,7 @@ function generatePlayerNameButtons() {
 	"Josek, Norbert",  
 	"Kraus, Max",  
 	"Langer, Kurt",
-    "Maulshagen, Martin",  
+	"Maulshagen, Martin",  
 	"Pestotnik, Ralf",
 	"Puls, Wilfried",
 	"Schekerka, Herbert",
@@ -1779,7 +1780,7 @@ function updateCopyright() {
   const width = screen.width;
   const height = screen.height;
   document.getElementById('copyright').innerHTML = 
-    `© 2026 by Frank Bertram (V5d) | Width: ${width}px | Height: ${height}px | Scale: ${scale}`;
+    `© 2026 by Frank Bertram (V8) | Width: ${width}px | Height: ${height}px | Scale: ${scale}`;
 }
 
 
@@ -1799,6 +1800,3 @@ window.addEventListener("load", () => {
     </div> 
 </body>
 </html>
-
-
-
